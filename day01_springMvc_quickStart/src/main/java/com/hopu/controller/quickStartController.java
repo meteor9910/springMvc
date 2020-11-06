@@ -16,5 +16,29 @@ public class quickStartController {
 
 
     }
+    @RequestMapping(value = "/hello/demo")
+    public String demo(String name,int age) {
+        System.out.println("name=>"+name);
+        System.out.println("age=>"+age);
+
+        return "success";
+
+
+    }
+
+    @RequestMapping(value = "/hello",params = {"username,password"})
+    public String demo2() {
+
+
+        return "success";
+
+
+    }
+    @RequestMapping(value = "/demo3")
+    public String demo3(User user){
+        System.out.println("user=>"+user);
+        return "success";
+    }
+
 
 }
