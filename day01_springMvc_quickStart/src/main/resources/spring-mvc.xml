@@ -23,4 +23,15 @@
         <!--后缀-->
         <property name="suffix" value=".jsp"/>
     </bean>
+    <mvc:annotation-driven conversion-service="conversionService"/>
+
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <set>
+                <bean class="com.hopu.controller.DateConverter"></bean>
+            </set>
+        </property>
+    </bean>
+
+
 </beans>

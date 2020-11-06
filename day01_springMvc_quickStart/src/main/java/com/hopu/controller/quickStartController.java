@@ -6,6 +6,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestMapping;
 import sun.security.util.Password;
 
+import java.util.Date;
+
 @Controller//被组件器扫描，实例化为一个bean的组件
 public class quickStartController {
     //匹配请求路径，进行匹配
@@ -57,6 +59,16 @@ public class quickStartController {
             return "success";
 
         }
+
+
+        @RequestMapping(value = "/demo6")
+    public String demo6(Date date){
+            System.out.println(date);
+            return "success";
+
+        }
+
+
 
 
 

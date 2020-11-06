@@ -7,6 +7,7 @@
     <a href="demo3">测试2</a>
     <a href="hello?username=123&password=123">测试01</a>
     <a href="demo4?students=张洋&students=李四">参数封装-数组类型</a>
+    <a href="demo6?date = 2020-11-6">参数封装-时间类型</a><br>
 
 <h2>Hello World!</h2>
 
