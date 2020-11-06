@@ -40,5 +40,15 @@ public class quickStartController {
         return "success";
     }
 
+    @RequestMapping(value ="/demo4")
+    public String demo4(String[] students){
+        for (String student:students){
+
+            System.out.println(student);
+        }
+        return "success";
+
+    }
+
 
 }
