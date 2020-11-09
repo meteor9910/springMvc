@@ -19,6 +19,12 @@
     <a href="demo15">使用@ResponseBody返回JSON数据 </a>
     <a href="demo16">使 @ResponseBody 相应一个自定义结果对象,同样要返回json格式</a>
     <a href="demo888">响应一个自定义结果对象</a>
+    <a href="demo100">ModelAttribute</a>
+    <a href="demo101">替换</a>
+    <a href="demo102">跳转</a>
+    <a href="/session /put">session</a>
+
+
 
 
 <h2>Hello World!</h2>
@@ -36,8 +42,44 @@
 
 
 
+
     </form>
 </div>
+
+ <div>
+      <script type="application/javascript" src="src/main/resources/js/jquery-3.4.1.js"></script>
+     <script>
+            $(function () {
+                $("#sub").click(function () {
+                    $.ajax({ type:"POST",
+                        url:"${pageContext.request.contextPath}/demo99",
+                        contentType:"application/json",
+                        dataType:"json",
+                        data:'{"name":"tom","age":"14"}',
+                        success:function (data){
+
+                        }
+
+
+                    })
+                    
+                })
+                
+            })
+     </script>
+ </div>
+<div>
+    <form method="post" action="${pageContext.request.contextPath}/demo99">
+        <input type="text" name="name" value="zhangsan">
+        <input type="submit" >
+    </form>
+</div>
+ <div>
+     <form action="/fileupload" method="post" enctype="multipart/form-data">
+         <input type="file" name="uploadFiles">//可以同时指定multiple属性支持多文件上传
+         <input type="submit" name="上传">
+     </form>
+ </div>
 
 </body>
 </html>

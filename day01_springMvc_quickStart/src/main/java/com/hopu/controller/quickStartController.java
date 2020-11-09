@@ -6,16 +6,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import sun.security.util.Password;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.IOException;
 import java.util.Date;
+import java.util.UUID;
 
 @Controller//被组件器扫描，实例化为一个bean的组件
 public class quickStartController {
@@ -180,6 +182,59 @@ public class quickStartController {
         result.setData(user);
         return new ResponseEntity<Result>(result, HttpStatus.CREATED);
     }
+
+
+
+    @RequestMapping("/demo99")
+    @ResponseBody
+    public  String demo3( String body){
+        return "success";
+
+    }
+
+
+    @RequestMapping("/demo100")
+    public  String demo100(@ModelAttribute() User user,Model model){
+        System.out.println(model.asMap().get("user"));
+        return "success";
+
+    }
+
+    @ModelAttribute()
+
+    public User demo101(){
+        User user = new User();
+        user.setName("zhangyang123");
+        return user;
+    }
+
+    @RequestMapping("/demo102")
+    public String demo102(Model model){
+        System.out.println(model.asMap().get("user"));
+        return "success";
+    }
+
+
+    @RequestMapping("/fileupload")
+    public void  upload(MultipartFile[] uploadFiles) throws IOException{
+        //指定上传路径
+        File file = new File("D:/uploads/");
+        for (MultipartFile multipartFile : uploadFiles){
+            //指定上传后文件名称
+            String newFileName = UUID.randomUUID()+
+                    multipartFile.getOriginalFilename();
+            //文件上传
+            multipartFile.transferTo(new File(file,newFileName));
+        }
+
+    }
+
+
+
+
+
+
+
 
 
 

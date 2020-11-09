@@ -1,11 +1,14 @@
 package com.hopu.controller;
 
+import lombok.Data;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+@Data
 public class User {
-    private int age;
     private String name;
+    private int age;
+
 
     public User(int age, String name) {
         this.age = age;
@@ -39,6 +42,10 @@ public class User {
                 '}';
     }
 
+    public User(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
 
 
 }

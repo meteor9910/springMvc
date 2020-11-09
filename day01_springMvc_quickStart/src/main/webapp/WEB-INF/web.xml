@@ -5,6 +5,7 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
         http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 
+
     <!-- 配置前端控制器 -->
     <servlet>
         <servlet-name>dispatcherServlet</servlet-name>
@@ -17,9 +18,23 @@
         <!--加载时机-->
         <load-on-startup>1</load-on-startup>
     </servlet>
+
     <servlet-mapping>
+
         <servlet-name>dispatcherServlet</servlet-name>
         <!-- 配置/意味着拦截除了jsp之外的所有请求 -->
-        <url-pattern>/</url-pattern>
+        <url-pattern>*.do</url-pattern>
+
+
+
+
+
     </servlet-mapping>
+
+
+
+
+
+
+
 </web-app>
